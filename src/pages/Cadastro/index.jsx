@@ -44,8 +44,7 @@ export default function Cadastro(){
         <div className="body">
           
           <div>
-            <h1>To-Do List</h1>
-                <p>Gerenciador de Tarefas</p>
+            <h1>Gerenciador de Tarefas</h1>
            </div>
 
         <form  className="forms" onSubmit={Cadastro}>
