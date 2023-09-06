@@ -1,4 +1,4 @@
-import './admin.css'
+
 import {signOut} from 'firebase/auth'
 import { useState, useEffect } from 'react'
 import { auth, db } from '../../firebase_connection'

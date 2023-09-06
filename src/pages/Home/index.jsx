@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './style.css'
+
 import {Link} from 'react-router-dom'
 import { auth } from "../../firebase_connection";
 import {signInWithEmailAndPassword} from 'firebase/auth'
@@ -34,26 +34,25 @@ function Home(){
     }
 
     return(
-        <div className="body">
+        <div className="w-screen bg-slate-50 p-2.5 h-screen flex flex-col items-center justify-center" >
           
            <div>
-            <h1>Gerenciador de Tarefas</h1>
+            <h1 className="text-center text-4xl text-blue-950 font-bold ">Gerenciador de Tarefas</h1>
                 
            </div>
 
-            <form  className="forms" onSubmit={Login}>
-                <h2>Login</h2>
-              
-   
+            <form  className=" w-screen pt-12 flex flex-col items-center gap-5 " onSubmit={Login}>
+                <h2 className="text-center text-2xl font-semibold pb-7">Entre com sua conta</h2>    
                 <input 
-               
                 type="email"
                 name=""
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}
                 placeholder="Digite o seu Email..."
-                id=""
+                className="border w-10/12 md:w-5/12 outline-none text-lg border-slate-200 rounded p-3"
                 />
+        
+             
               
                 <input
                 value={password}
@@ -61,11 +60,12 @@ function Home(){
                 placeholder="Digite sua senha..." 
                 type="password"
                 name=""
-                id="" />
+                className="border w-10/12 md:w-5/12 outline-none text-lg border-slate-200 rounded p-3"
+                 />
                 
-            <button type="submit">Entrar</button>
+            <button className="bg-slate-700 w-10/12 md:w-5/12 text-white p-2.5 font-semibold rounded" type="submit">Entrar</button>
 
-            <Link to='/Cadastro'>Ou cadastre-se</Link>
+            <Link className="text-center underline " to='/Cadastro'>Ou cadastre-se</Link>
             </form>
            
         </div>
