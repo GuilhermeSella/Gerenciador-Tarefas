@@ -130,35 +130,41 @@ export default function Admin(){
     }
 
     return(
-        <div className='container'>
+        <div className='h-screen w-screen flex flex-col items-center justify-start py-10 px-5 bg-slate-50'>
          
-            <form  className='forms' onSubmit={AdicionarTarefa}>
-                <h2>Tarefas</h2>
-                <textarea name="" id="" cols="30" rows="10" placeholder='Digite a sua tarefa' value={tarefa}
+            <form  className='w-screen pt-12 flex flex-col items-center gap-4 pb-10 ' onSubmit={AdicionarTarefa}>
+                <h2  className="text-center text-4xl font-semibold pb-7">Tarefas</h2>
+                <textarea 
+                cols="30"
+                rows="10"
+                placeholder='Digite a sua tarefa'
+                value={tarefa}
+                className='border border-slate-200 h-24 w-10/12 rounded p-3 resize-none outline-none'
                 onChange={(e)=>setTarefa(e.target.value)}
-                ></textarea>
+                >
+                    
+                </textarea>
                {Object.keys(edit).length > 0 ? (
-                 <button type="submit" style={{backgroundColor: 'rgb(152, 83, 255)'}}>Atualizar</button>
+                 <button type="submit" className='p-2 bg-purple-700 rounded w-10/12 '>Atualizar</button>
                ) : (
-                <button type="submit" >Adicionar</button>
+                <button className='p-2 rounded w-10/12  bg-slate-800 text-white' type="submit" >Adicionar</button>
                )}
             </form>
 
             {listTarefas.map((item)=>(
-              <section key={item.id} className='listaTarefas'>
+              <section key={item.id} className='border border-slate-800 p-3 rounded-sm'>
                  
-                <div>
-                   
+                <div className=''>
                     <p>{item.tarefa}</p>
                 </div>
-                <div>
+                <div className='flex gap-3'>
                     <button onClick={() => editTarefa(item)} className='buttonEditar'>Editar</button>
                    <button onClick={()=>deleteTarefa(item.id)} className='buttonConcluir'>Concluir</button>
                 </div>
               </section>  
             ))}
            
-            <button className='signOut' onClick={signOut}>Sair</button>
+            <button className='fixed left-5 bottom-16 bg-red-400 py-2 rounded text-white w-20' onClick={signOut}>Sair</button>
         </div>
     )
 }
